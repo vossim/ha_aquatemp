@@ -1,0 +1,63 @@
+name: Bug report
+description: Something is not working correctly
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Before filing a bug, please search existing issues to avoid duplicates.
+        **Do not include your device's MAC address in any field below.**
+
+  - type: input
+    id: ha_version
+    attributes:
+      label: Home Assistant version
+      placeholder: "2024.6.0"
+    validations:
+      required: true
+
+  - type: input
+    id: integration_version
+    attributes:
+      label: Integration version
+      placeholder: "0.1.0"
+    validations:
+      required: true
+
+  - type: input
+    id: device_model
+    attributes:
+      label: Heat pump model
+      placeholder: "AquaTemp mini / PC1006 / unknown"
+    validations:
+      required: false
+
+  - type: textarea
+    id: description
+    attributes:
+      label: What happened?
+      description: Describe the bug. What did you expect, and what actually happened?
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Go to ...
+        2. Click ...
+        3. See error
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant log output
+      description: |
+        Paste log lines from Settings → System → Logs (filter for `auqatemp`).
+        Remove any MAC addresses before pasting.
+      render: text
+    validations:
+      required: false

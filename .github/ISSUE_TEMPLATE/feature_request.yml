@@ -1,0 +1,27 @@
+name: Feature request
+description: Suggest a new feature or improvement
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: use_case
+    attributes:
+      label: What problem does this solve?
+      description: Describe the use case. What are you trying to do that the integration currently cannot do?
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+      description: How would you like this to work? Any alternative approaches you considered?
+    validations:
+      required: false
+
+  - type: textarea
+    id: extra
+    attributes:
+      label: Additional context
+      description: Links, screenshots, protocol references, or anything else that may be relevant.
+    validations:
+      required: false

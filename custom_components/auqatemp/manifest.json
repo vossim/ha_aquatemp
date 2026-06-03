@@ -1,0 +1,13 @@
+{
+  "domain": "auqatemp",
+  "name": "AquaTemp Heat Pump",
+  "version": "0.1.0",
+  "iot_class": "local_polling",
+  "integration_type": "device",
+  "config_flow": true,
+  "requirements": ["bleak>=0.21.0"],
+  "bluetooth": [{"connectable": true}],
+  "codeowners": ["@vossim"],
+  "documentation": "https://github.com/vossim/ha_auqatemp",
+  "issue_tracker": "https://github.com/vossim/ha_auqatemp/issues"
+}

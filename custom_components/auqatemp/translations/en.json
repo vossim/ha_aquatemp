@@ -1,0 +1,20 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Set up AquaTemp Heat Pump",
+        "description": "Enter the Bluetooth MAC address printed on your device.",
+        "data": {
+          "mac_address": "MAC Address"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Failed to connect to the device. Check the MAC address and ensure the device is powered on and in range.",
+      "invalid_mac": "The MAC address format is invalid."
+    },
+    "abort": {
+      "already_configured": "This device is already configured."
+    }
+  }
+}

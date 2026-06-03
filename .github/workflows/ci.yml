@@ -1,0 +1,63 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_call:
+
+jobs:
+  test:
+    name: Test (Python ${{ matrix.python-version }})
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.12", "3.13"]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install dependencies
+        run: pip install -r requirements-dev.txt
+
+      - name: Run tests with coverage
+        run: pytest --cov=custom_components/auqatemp --cov-report=xml --cov-fail-under=80
+
+      - name: Upload coverage report
+        uses: codecov/codecov-action@v4
+        if: matrix.python-version == '3.13'
+        with:
+          files: coverage.xml
+
+  security:
+    name: Security audit
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Install pip-audit
+        run: pip install pip-audit==2.9.0
+
+      # We install only the packages this integration introduces beyond HA itself,
+      # then audit that minimal environment. homeassistant's own transitive
+      # dependency security is managed by the HA project's release process.
+      - name: Audit bleak (sole runtime dependency we add)
+        run: |
+          pip install bleak==3.0.2
+          pip-audit --local
+
+      - name: Audit dev-only additions
+        run: |
+          pip install pytest==9.0.3 pytest-asyncio==1.4.0 pytest-cov==7.1.0
+          pip-audit --local

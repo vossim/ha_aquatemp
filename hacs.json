@@ -1,0 +1,7 @@
+{
+  "name": "AquaTemp Heat Pump",
+  "homeassistant": "2024.1.0",
+  "domains": ["climate"],
+  "iot_class": "local_polling",
+  "render_readme": true
+}

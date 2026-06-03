@@ -1,0 +1,76 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  validate:
+    name: Validate version
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check manifest version matches tag
+        run: |
+          TAG="${GITHUB_REF_NAME#v}"
+          MANIFEST_VERSION=$(python -c "import json; print(json.load(open('custom_components/auqatemp/manifest.json'))['version'])")
+          if [ "$TAG" != "$MANIFEST_VERSION" ]; then
+            echo "Tag '$TAG' does not match manifest version '$MANIFEST_VERSION'"
+            exit 1
+          fi
+
+  test:
+    name: Test suite
+    needs: validate
+    uses: ./.github/workflows/ci.yml
+
+  release:
+    name: Create GitHub Release
+    needs: test
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build release archive
+        run: |
+          VERSION="${GITHUB_REF_NAME}"
+          ZIP_NAME="auqatemp-${VERSION}.zip"
+          cd custom_components
+          zip -r "../${ZIP_NAME}" auqatemp/
+          cd ..
+          echo "ZIP_NAME=${ZIP_NAME}" >> "$GITHUB_ENV"
+
+      - name: Extract changelog for this release
+        id: changelog
+        run: |
+          # If a CHANGELOG.md exists, extract the section for this version.
+          # Falls back to an empty body so the release is still created.
+          if [ -f CHANGELOG.md ]; then
+            python - <<'EOF'
+          import re, os, sys
+          tag = os.environ["GITHUB_REF_NAME"]
+          version = tag.lstrip("v")
+          text = open("CHANGELOG.md").read()
+          pattern = rf"(?:^|\n)## \[?{re.escape(version)}\]?.*?\n(.*?)(?=\n## |\Z)"
+          m = re.search(pattern, text, re.DOTALL)
+          body = m.group(1).strip() if m else ""
+          with open(os.environ["GITHUB_OUTPUT"], "a") as f:
+              f.write(f"body<<BODY\n{body}\nBODY\n")
+          EOF
+          else
+            echo "body=" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Create release
+        uses: softprops/action-gh-release@v2
+        with:
+          name: ${{ github.ref_name }}
+          body: ${{ steps.changelog.outputs.body }}
+          files: ${{ env.ZIP_NAME }}
+          draft: false
+          prerelease: ${{ contains(github.ref_name, '-') }}

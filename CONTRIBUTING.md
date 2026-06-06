@@ -9,8 +9,8 @@ Thank you for considering a contribution to this project. The guidelines below k
 **Requirements:** Python 3.12 or 3.13, `git`.
 
 ```bash
-git clone https://github.com/vossim/ha_auqatemp.git
-cd ha_auqatemp
+git clone https://github.com/vossim/ha_aquatemp.git
+cd ha_aquatemp
 
 python -m venv .venv
 source .venv/bin/activate          # Windows: .venv\Scripts\activate
@@ -27,7 +27,7 @@ pytest
 Run with coverage (must stay above 80 %):
 
 ```bash
-pytest --cov=custom_components/auqatemp --cov-report=term-missing
+pytest --cov=custom_components/aquatemp --cov-report=term-missing
 ```
 
 ---
@@ -35,7 +35,7 @@ pytest --cov=custom_components/auqatemp --cov-report=term-missing
 ## Project structure
 
 ```
-custom_components/auqatemp/
+custom_components/aquatemp/
   domain/          # Pure Python — no HA, no BLE imports
   application/     # Orchestration — depends on domain + port interfaces only
   infrastructure/  # Concrete adapters (BLE transport, HA platform setup)
@@ -94,7 +94,7 @@ Use the [Bug Report](.github/ISSUE_TEMPLATE/bug_report.yml) issue template. Incl
 - Home Assistant version
 - Integration version
 - Your heat pump model (if known)
-- Relevant log lines from `Settings → System → Logs` (filter for `auqatemp`)
+- Relevant log lines from `Settings → System → Logs` (filter for `aquatemp`)
 
 Do **not** include your device's MAC address in any issue or log snippet.
 

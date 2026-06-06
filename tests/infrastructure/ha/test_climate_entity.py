@@ -2,10 +2,10 @@ from unittest.mock import AsyncMock, MagicMock, PropertyMock
 
 import pytest
 
-from custom_components.auqatemp.domain.commands import SetMode, SetPower, SetTemperature
-from custom_components.auqatemp.domain.heat_pump import HeatPump
-from custom_components.auqatemp.domain.value_objects import OperatingMode, PowerState, SetPoint
-from custom_components.auqatemp.infrastructure.ha.climate_entity import AquaTempClimateEntity
+from custom_components.aquatemp.domain.commands import SetMode, SetPower, SetTemperature
+from custom_components.aquatemp.domain.heat_pump import HeatPump
+from custom_components.aquatemp.domain.value_objects import OperatingMode, PowerState, SetPoint
+from custom_components.aquatemp.infrastructure.ha.climate_entity import AquaTempClimateEntity
 from homeassistant.components.climate import HVACAction, HVACMode
 from tests.conftest import make_registers
 

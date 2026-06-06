@@ -3,8 +3,8 @@ from unittest.mock import AsyncMock, MagicMock, patch
 
 import pytest
 
-from custom_components.auqatemp.domain.exceptions import CommunicationError, DeviceNotReady
-from custom_components.auqatemp.infrastructure.ble.transport import BleakTransport
+from custom_components.aquatemp.domain.exceptions import CommunicationError, DeviceNotReady
+from custom_components.aquatemp.infrastructure.ble.transport import BleakTransport
 
 _MAC = "AA:BB:CC:DD:EE:FF"
 _FRAME = "63030007002D3C54"
@@ -35,7 +35,7 @@ class TestBleakTransportSendAndReceive:
         raw = bytes([0x63, 0x03, 0x5A] + [0x00] * 90 + [0xAB, 0xCD])
         cm, client = _make_bleak_client_mock(notify_data=raw)
         with patch(
-            "custom_components.auqatemp.infrastructure.ble.transport.BleakClient",
+            "custom_components.aquatemp.infrastructure.ble.transport.BleakClient",
             return_value=cm,
         ):
             transport = BleakTransport(_MAC)
@@ -47,7 +47,7 @@ class TestBleakTransportSendAndReceive:
         raw = bytes([0x63, 0x03, 0x5A] + [0x00] * 90 + [0x00, 0x00])
         cm, client = _make_bleak_client_mock(notify_data=raw)
         with patch(
-            "custom_components.auqatemp.infrastructure.ble.transport.BleakClient",
+            "custom_components.aquatemp.infrastructure.ble.transport.BleakClient",
             return_value=cm,
         ):
             transport = BleakTransport(_MAC)
@@ -64,10 +64,10 @@ class TestBleakTransportSendAndReceive:
         client.start_notify = fake_start_notify
 
         with patch(
-            "custom_components.auqatemp.infrastructure.ble.transport.BleakClient",
+            "custom_components.aquatemp.infrastructure.ble.transport.BleakClient",
             return_value=cm,
         ), patch(
-            "custom_components.auqatemp.infrastructure.ble.transport._NOTIFY_TIMEOUT_SECONDS",
+            "custom_components.aquatemp.infrastructure.ble.transport._NOTIFY_TIMEOUT_SECONDS",
             0.01,
         ):
             transport = BleakTransport(_MAC)
@@ -82,7 +82,7 @@ class TestBleakTransportSendAndReceive:
         cm.__aexit__ = AsyncMock(return_value=False)
 
         with patch(
-            "custom_components.auqatemp.infrastructure.ble.transport.BleakClient",
+            "custom_components.aquatemp.infrastructure.ble.transport.BleakClient",
             return_value=cm,
         ):
             transport = BleakTransport(_MAC)
@@ -94,7 +94,7 @@ class TestBleakTransportSend:
     async def test_send_writes_frame(self):
         cm, client = _make_bleak_client_mock()
         with patch(
-            "custom_components.auqatemp.infrastructure.ble.transport.BleakClient",
+            "custom_components.aquatemp.infrastructure.ble.transport.BleakClient",
             return_value=cm,
         ):
             transport = BleakTransport(_MAC)
@@ -109,7 +109,7 @@ class TestBleakTransportSend:
         cm.__aexit__ = AsyncMock(return_value=False)
 
         with patch(
-            "custom_components.auqatemp.infrastructure.ble.transport.BleakClient",
+            "custom_components.aquatemp.infrastructure.ble.transport.BleakClient",
             return_value=cm,
         ):
             transport = BleakTransport(_MAC)

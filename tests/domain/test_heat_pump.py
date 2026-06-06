@@ -1,7 +1,7 @@
 import pytest
 
-from custom_components.auqatemp.domain.heat_pump import HeatPump
-from custom_components.auqatemp.domain.value_objects import OperatingMode, PowerState
+from custom_components.aquatemp.domain.heat_pump import HeatPump
+from custom_components.aquatemp.domain.value_objects import OperatingMode, PowerState
 from tests.conftest import make_registers
 
 

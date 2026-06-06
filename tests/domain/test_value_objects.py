@@ -1,7 +1,7 @@
 import pytest
 
-from custom_components.auqatemp.domain.exceptions import InvalidSetPoint
-from custom_components.auqatemp.domain.value_objects import (
+from custom_components.aquatemp.domain.exceptions import InvalidSetPoint
+from custom_components.aquatemp.domain.value_objects import (
     OperatingMode,
     PowerState,
     SetPoint,

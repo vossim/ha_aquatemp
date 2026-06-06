@@ -1,6 +1,6 @@
 import pytest
 
-from custom_components.auqatemp.domain.exceptions import (
+from custom_components.aquatemp.domain.exceptions import (
     AquaTempError,
     CommunicationError,
     DeviceNotReady,

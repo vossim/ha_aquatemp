@@ -7,7 +7,7 @@ from .application.heat_pump_service import HeatPumpService
 from .infrastructure.ble.transport import BleakTransport
 from .infrastructure.ha.coordinator import AquaTempCoordinator
 
-DOMAIN = "auqatemp"
+DOMAIN = "aquatemp"
 _PLATFORMS = ["climate"]
 
 

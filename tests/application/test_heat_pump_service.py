@@ -2,12 +2,12 @@ from unittest.mock import AsyncMock
 
 import pytest
 
-from custom_components.auqatemp.application.heat_pump_service import HeatPumpService
-from custom_components.auqatemp.domain.commands import SetMode, SetPower, SetTemperature
-from custom_components.auqatemp.domain.exceptions import CommunicationError
-from custom_components.auqatemp.domain.heat_pump import HeatPump
-from custom_components.auqatemp.domain.value_objects import OperatingMode, PowerState, SetPoint
-from custom_components.auqatemp.infrastructure.ble.frame_codec import (
+from custom_components.aquatemp.application.heat_pump_service import HeatPumpService
+from custom_components.aquatemp.domain.commands import SetMode, SetPower, SetTemperature
+from custom_components.aquatemp.domain.exceptions import CommunicationError
+from custom_components.aquatemp.domain.heat_pump import HeatPump
+from custom_components.aquatemp.domain.value_objects import OperatingMode, PowerState, SetPoint
+from custom_components.aquatemp.infrastructure.ble.frame_codec import (
     build_write_frame,
     crc16_modbus,
 )

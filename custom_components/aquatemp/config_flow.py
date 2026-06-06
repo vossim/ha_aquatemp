@@ -11,7 +11,7 @@ from .domain.exceptions import AquaTempError
 from .infrastructure.ble.frame_codec import build_read_frame
 from .infrastructure.ble.transport import BleakTransport
 
-DOMAIN = "auqatemp"
+DOMAIN = "aquatemp"
 
 _MAC_PATTERN = re.compile(r"^([0-9A-Fa-f]{2}:){5}[0-9A-Fa-f]{2}$")
 

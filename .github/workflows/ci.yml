@@ -26,7 +26,7 @@ jobs:
         run: pip install -r requirements-dev.txt
 
       - name: Run tests with coverage
-        run: pytest --cov=custom_components/auqatemp --cov-report=xml --cov-fail-under=80
+        run: pytest --cov=custom_components/aquatemp --cov-report=xml --cov-fail-under=80
 
       - name: Upload coverage report
         uses: codecov/codecov-action@v4

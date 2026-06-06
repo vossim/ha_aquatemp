@@ -1,7 +1,7 @@
 import pytest
 
-from custom_components.auqatemp.domain.register_map import REGISTER_COUNT
-from custom_components.auqatemp.domain.value_objects import OperatingMode, PowerState
+from custom_components.aquatemp.domain.register_map import REGISTER_COUNT
+from custom_components.aquatemp.domain.value_objects import OperatingMode, PowerState
 
 
 def make_registers(

@@ -1,4 +1,4 @@
-from custom_components.auqatemp.domain.register_map import (
+from custom_components.aquatemp.domain.register_map import (
     MODBUS_ADDR_AUTO_TARGET,
     MODBUS_ADDR_COOL_TARGET,
     MODBUS_ADDR_HEAT_TARGET,

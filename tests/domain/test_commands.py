@@ -1,7 +1,7 @@
 import pytest
 
-from custom_components.auqatemp.domain.commands import SetMode, SetPower, SetTemperature
-from custom_components.auqatemp.domain.value_objects import OperatingMode, PowerState, SetPoint
+from custom_components.aquatemp.domain.commands import SetMode, SetPower, SetTemperature
+from custom_components.aquatemp.domain.value_objects import OperatingMode, PowerState, SetPoint
 
 
 class TestSetPower:

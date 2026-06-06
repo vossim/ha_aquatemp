@@ -2,11 +2,11 @@ from unittest.mock import AsyncMock, MagicMock, patch
 
 import pytest
 
-from custom_components.auqatemp.domain.commands import SetPower
-from custom_components.auqatemp.domain.exceptions import CommunicationError
-from custom_components.auqatemp.domain.heat_pump import HeatPump
-from custom_components.auqatemp.domain.value_objects import PowerState
-from custom_components.auqatemp.infrastructure.ha.coordinator import AquaTempCoordinator
+from custom_components.aquatemp.domain.commands import SetPower
+from custom_components.aquatemp.domain.exceptions import CommunicationError
+from custom_components.aquatemp.domain.heat_pump import HeatPump
+from custom_components.aquatemp.domain.value_objects import PowerState
+from custom_components.aquatemp.infrastructure.ha.coordinator import AquaTempCoordinator
 from homeassistant.helpers.update_coordinator import UpdateFailed
 from tests.conftest import make_registers
 

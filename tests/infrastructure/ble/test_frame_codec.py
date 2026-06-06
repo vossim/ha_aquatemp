@@ -1,7 +1,7 @@
 import pytest
 
-from custom_components.auqatemp.domain.exceptions import FrameError
-from custom_components.auqatemp.infrastructure.ble.frame_codec import (
+from custom_components.aquatemp.domain.exceptions import FrameError
+from custom_components.aquatemp.infrastructure.ble.frame_codec import (
     build_read_frame,
     build_write_frame,
     crc16_modbus,

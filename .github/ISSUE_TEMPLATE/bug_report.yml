@@ -56,7 +56,7 @@ body:
     attributes:
       label: Relevant log output
       description: |
-        Paste log lines from Settings → System → Logs (filter for `auqatemp`).
+        Paste log lines from Settings → System → Logs (filter for `aquatemp`).
         Remove any MAC addresses before pasting.
       render: text
     validations:

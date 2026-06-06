@@ -36,7 +36,7 @@ Use the terms from the spec consistently in code and in tests:
 ### Layers
 
 ```
-ha_auqatemp/
+ha_aquatemp/
   domain/          # Pure Python — no HA, no BLE imports
     heat_pump.py   # HeatPump aggregate, value objects, domain events
     register_map.py

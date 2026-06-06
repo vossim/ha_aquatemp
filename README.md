@@ -1,6 +1,6 @@
 # AquaTemp Heat Pump — Home Assistant Integration
 
-[![CI](https://github.com/vossim/ha_auqatemp/actions/workflows/ci.yml/badge.svg)](https://github.com/vossim/ha_auqatemp/actions/workflows/ci.yml)
+[![CI](https://github.com/vossim/ha_aquatemp/actions/workflows/ci.yml/badge.svg)](https://github.com/vossim/ha_aquatemp/actions/workflows/ci.yml)
 [![HACS Custom](https://img.shields.io/badge/HACS-Custom-orange.svg)](https://hacs.xyz)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](LICENSE)
 
@@ -50,14 +50,14 @@ If your device is not listed but uses the same BLE service UUID, it will very li
 
 1. Open HACS in your Home Assistant instance.
 2. Go to **Integrations** → three-dot menu → **Custom repositories**.
-3. Add `https://github.com/vossim/ha_auqatemp` with category **Integration**.
+3. Add `https://github.com/vossim/ha_aquatemp` with category **Integration**.
 4. Find **AquaTemp Heat Pump** in the HACS integration list and click **Download**.
 5. Restart Home Assistant.
 
 ### Manual
 
-1. Download the [latest release](https://github.com/vossim/ha_auqatemp/releases/latest) ZIP.
-2. Unzip and copy the `custom_components/auqatemp` folder into your HA `config/custom_components/` directory.
+1. Download the [latest release](https://github.com/vossim/ha_aquatemp/releases/latest) ZIP.
+2. Unzip and copy the `custom_components/aquatemp` folder into your HA `config/custom_components/` directory.
 3. Restart Home Assistant.
 
 ---
@@ -130,7 +130,7 @@ The device is polled every 30 seconds by default (Home Assistant coordinator def
 **Entity shows unavailable**
 
 - Ensure the heat pump is powered on and the BLE adapter can reach it.
-- Check the HA logs (`Settings → System → Logs`) for `auqatemp` errors.
+- Check the HA logs (`Settings → System → Logs`) for `aquatemp` errors.
 - If the device is far from the HA host, consider adding a [Bluetooth proxy](https://www.home-assistant.io/integrations/bluetooth/).
 
 **"Failed to connect" during setup**
